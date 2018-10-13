@@ -5,16 +5,11 @@ import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 import sys
 
-print('Import Done!')
-
 def GetDataMeanSigma2(N):
     data = np.random.randn(N)
     mean = sum(data)/N
     sigma2 = sum(pow((data-mean),2))/N
     return (mean, sigma2)
-
-print('Define function GetDataMeanSigma2 Done!')
-
 
 def MonteCarloSimulation (fig, N):
 
@@ -39,6 +34,6 @@ def MonteCarloSimulation (fig, N):
     plt.grid(True)
 
     plt.show()
-
+    
 MonteCarloSimulation(1, 10)
 MonteCarloSimulation(2, 100)
