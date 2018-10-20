@@ -7,6 +7,7 @@ import sys
 
 def GenerateData(N):
 	mu = 1
+	N = 50
 	sigma_square = 0.1
 	sigma = np.sqrt(sigma_square/N)
 	data = sigma * np.random.randn(N) + mu
