@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #---------------------------------------------------------------#
-# Copyright 2018, Shengjun(Zhang) Zhang, All rights reserved.
+# All rights reserved (c) 2018 Shengjun(Daniel) Zhang.          #
 #---------------------------------------------------------------#
 import numpy as np
 import matplotlib.mlab as mlab
