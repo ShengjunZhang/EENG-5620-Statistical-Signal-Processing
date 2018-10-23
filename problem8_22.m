@@ -4,9 +4,8 @@
 % is to write a Monte Carlo simulation for the problem, and then plot
 % serveral pictures of the gain, variance sequences as shown around (8.40)
 %-------------------------------------------------------------------------%
-
 clc; clear; close all;
-
+%-------------------------------------------------------------------------%
 % % Initialize different parameters
     A = 10;
     N = 200;
@@ -26,8 +25,8 @@ r = 1.05;
     var_A(1) = sigma2_0;
     x(1) = x0;
     K(1) = 0.5; % % From (8.41)
-%   % Generate Data
-
+%-------------------------------------------------------------------------%
+% % Monte Carlo Simulation, generate data and update estimator, gain and variance.
 for i = 2: N
         sigma2 = r^i;
         x(i) = A + sqrt(sigma2)*randn;        
@@ -35,9 +34,10 @@ for i = 2: N
         A_estimator(i) = A_estimator(i-1)+K(i)*(x(i)-A_estimator(i-1));       
         var_A(i) = (1-K(i))*var_A(i-1);
 end
+%-------------------------------------------------------------------------%
 % % Plot
+%-------------------------------------------------------------------------%
 figure(1);
-
 iteration = 1 : N;
 
 subplot(2,2,1);
@@ -58,3 +58,4 @@ xlabel('Current sample, N'),ylabel('Variance');
 
 suptitle('r = 1.05');
 disp('Done!');
+%-------------------------------------------------------------------------%
