@@ -1,9 +1,12 @@
 %% This is for EENG 5620 Statistical Signal Processing
 %-------------------------------------------------------------------------%
 % % Assignment 4 Problem 8.22 from the text book, what I am trying to do
-% is to write a Monte Carlo simulation for the problem, and then plot
-% serveral pictures of the gain, variance sequences as shown around (8.40)
-% Copyright 2018, Shengjun(Zhang) Zhang, All rights reserved.
+% is to write a Monte Carlo simulation code for the problem, and then plot
+% serveral pictures including the data sequences, estimator, gain, variance
+% sequences.
+%                                                                         %
+% Copyright 2018, Shengjun(Zhang) Zhang, All rights reserved.             %
+%                                                                         %
 %-------------------------------------------------------------------------%
 clc; clear; close all;
 %-------------------------------------------------------------------------%
