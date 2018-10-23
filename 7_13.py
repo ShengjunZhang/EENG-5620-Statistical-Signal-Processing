@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+#---------------------------------------------------------------#
+# Copyright 2018, Shengjun(Zhang) Zhang, All rights reserved.
+#---------------------------------------------------------------#
 import numpy as np
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
