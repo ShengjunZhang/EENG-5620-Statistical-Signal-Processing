@@ -10,7 +10,6 @@ clc; clear; close all;
 % % Initialize different parameters
     A = 10;
     N = 200;
-    M = 1000;
     A_estimator = zeros(1, N);
     K = zeros(1, N);
     var_A = zeros(1, N);
