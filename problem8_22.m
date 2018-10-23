@@ -5,7 +5,7 @@
 % serveral pictures including the data sequences, estimator, gain, variance
 % sequences.
 %                                                                         %
-% Copyright 2018, Shengjun(Zhang) Zhang, All rights reserved.             %
+% All rights reserved (c) 2018 Shengjun(Daniel) Zhang.                    %
 %                                                                         %
 %-------------------------------------------------------------------------%
 clc; clear; close all;
