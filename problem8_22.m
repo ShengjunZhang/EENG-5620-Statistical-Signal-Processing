@@ -20,9 +20,7 @@ clc; clear; close all;
     x = zeros(1, N);
 %-------------------------------------------------------------------------%
 % % For different r 
-% r = 1;
-% r = 0.95;
-r = 1.05;
+r_list = [1, 0.95, 1.05];
 %-------------------------------------------------------------------------%
     x0 = A + sqrt(sigma2_0)*randn;
     A_estimator(1) = x0;
@@ -31,35 +29,36 @@ r = 1.05;
     K(1) = 0.5; % % From (8.41)
 %-------------------------------------------------------------------------%
 % % Monte Carlo Simulation, generate data and update estimator, gain and variance.
-for i = 2: N
-        sigma2 = r^i;
-        x(i) = A + sqrt(sigma2)*randn;        
-        K(i) = var_A(i-1)/(var_A(i-1) + sigma2);        
-        A_estimator(i) = A_estimator(i-1)+K(i)*(x(i)-A_estimator(i-1));       
-        var_A(i) = (1-K(i))*var_A(i-1);
+
+for j = 1:length(r_list)
+    r = r_list(j);
+    for i = 2: N
+            sigma2 = r^i;
+            x(i) = A + sqrt(sigma2)*randn;        
+            K(i) = var_A(i-1)/(var_A(i-1) + sigma2);        
+            A_estimator(i) = A_estimator(i-1)+K(i)*(x(i)-A_estimator(i-1));       
+            var_A(i) = (1-K(i))*var_A(i-1);
+    end
+    figure;
+    iteration = 1 : N;
+
+    subplot(2,2,1);
+    plot(iteration,  x);
+    xlabel('Current sample, N'),ylabel('Data');
+
+    subplot(2,2,2);
+    plot(iteration,  A_estimator);
+    xlabel('Current sample, N'),ylabel('Estimate');
+
+    subplot(2,2,3);
+    plot(iteration,  K);
+    xlabel('Current sample, N'),ylabel('Gain');
+
+    subplot(2,2,4);
+    plot(iteration,  var_A);
+    xlabel('Current sample, N'),ylabel('Variance');
+    sgtitle(['r = ', num2str(r)], 'Interpreter', 'LaTeX');
+  
+    
 end
-%-------------------------------------------------------------------------%
-% % Plot
-%-------------------------------------------------------------------------%
-figure(1);
-iteration = 1 : N;
-
-subplot(2,2,1);
-plot(iteration,  x);
-xlabel('Current sample, N'),ylabel('Data');
-
-subplot(2,2,2);
-plot(iteration,  A_estimator);
-xlabel('Current sample, N'),ylabel('Estimate');
-
-subplot(2,2,3);
-plot(iteration,  K);
-xlabel('Current sample, N'),ylabel('Gain');
-
-subplot(2,2,4);
-plot(iteration,  var_A);
-xlabel('Current sample, N'),ylabel('Variance');
-
-suptitle('r = 1.05');
-disp('Done!');
 %-------------------------------------------------------------------------%
